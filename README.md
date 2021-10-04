@@ -1,7 +1,7 @@
 # Sample on Svelte Material UI vioating CSP
 
 This repo is a simpla example on where Svelte Material UI violates Content Security Policy.
-It is meant as an easy way of reproducing the violations described in **TODO: insert link to issue**.
+It is meant as an easy way of reproducing the violations described in https://github.com/hperrin/svelte-material-ui/issues/339
 
 ## CSP setup
 
