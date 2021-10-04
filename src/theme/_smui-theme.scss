@@ -1,0 +1,71 @@
+@use 'sass:color';
+@use '@material/theme/color-palette';
+// KDO-Farben
+@use '@material/theme/index' as theme with (
+  $primary: rgb(0,133,62),
+  $secondary: rgb(0,94,168),
+  $surface: #fff,
+  $background: #fff,
+  $error: color-palette.$red-900,
+);
+@use '@material/elevation/mdc-elevation';
+@use '@material/button/index' as mdc-button;
+@use '@material/shape/variables' as mdc-shape;
+
+html,
+body {
+  background-color: theme.$surface;
+  color: theme.$on-surface;
+}
+
+a {
+  color: rgb(0,133,62);
+}
+a:visited {
+  color: color.scale(rgb(0,133,62), $lightness: -35%);
+}
+
+a.button-shaped-round, button.button-shaped-round {
+    @include mdc-button.shape-radius(999px);
+}
+
+a.button-shaped-notch, button.button-shaped-notch {
+    --notchSize: #{mdc-shape.$small-component-radius * 2};
+
+    // source: https://css-tricks.com/notched-boxes/
+    -webkit-clip-path: polygon(
+        0% var(--notchSize),
+        var(--notchSize) 0%,
+        calc(100% - var(--notchSize)) 0%,
+        100% var(--notchSize),
+        100% calc(100% - var(--notchSize)),
+        calc(100% - var(--notchSize)) 100%,
+        var(--notchSize) 100%,
+        0% calc(100% - var(--notchSize))
+    );
+    clip-path: polygon(
+        0% var(--notchSize),
+        var(--notchSize) 0%,
+        calc(100% - var(--notchSize)) 0%,
+        100% var(--notchSize),
+        100% calc(100% - var(--notchSize)),
+        calc(100% - var(--notchSize)) 100%,
+        var(--notchSize) 100%,
+        0% calc(100% - var(--notchSize))
+    );
+}
+
+div.route {
+  flex-grow: 1;
+  color: rgb(0, 94, 168);
+  text-transform: uppercase;
+  font-weight: 100;
+
+  &.active-route {
+      color: rgb(0, 133, 62);
+      font-weight: unset;
+  }
+}
+
+
+
